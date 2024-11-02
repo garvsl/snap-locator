@@ -1,10 +1,14 @@
 # snap-locator
 
-Snap Locator is a lightweight JavaScript library that simplifies the process of retrieving location data from the Snap Locator website. It allows developers to access store information quickly and efficiently.
+Snap Locator is a lightweight JavaScript library designed for easy retrieval of location data from the Snap Locator website. It simplifies access to store information, enabling developers to integrate location-based services into their applications effortlessly.
+
+Built on top of the SNAP Retailer Locator API.
 
 ## Installation
 
-`npm install snap-locator`
+```bash
+npm install snap-locator
+```
 
 ## Features
 
@@ -14,68 +18,69 @@ Snap Locator is a lightweight JavaScript library that simplifies the process of 
 
 ## Simple Usage
 
-` const desiredData = await retrieve("New York");
-  console.log(desiredData);`
+```javascript
+const desiredData = await retrieve("New York");
+
+console.log(desiredData);
+```
 
 ## If more customization needed
 
-`
+```javascript
 const location = "New York"; // Desired location
 const locations = await suggestLocations(location); // Auto location complete
 const magicKey = locations[0].magicKey; // Get the magic key from the first location
 
-    const details = await locationDetails(
-      // Get the long and lat of location
-      location,
-      magicKey
-    );
+const details = await locationDetails(location, magicKey); // Get the long and lat of location
 
-    const long = details[0].attributes.X;
-    const lat = details[0].attributes.Y;
+const long = details[0].attributes.X;
+const lat = details[0].attributes.Y;
 
-    const desiredData = await fetchData(lat, long);
-    console.log(desiredData);
-
-\*/
-`
+const desiredData = await fetchData(lat, long);
+console.log(desiredData);
+```
 
 ## Sample output
 
-`[ {
-    attributes: {
-      Record_ID: 1063605,
-      Store_Name: 'Win Sea Food Market Inc.',
-      Store_Street_Address: '218 Canal St',
-      Additonal_Address: null,
-      City: 'New York',
-      State: 'NY',
-      Zip_Code: '10013',
-      Zip4: '4123',
-      County: 'NEW YORK',
-      Store_Type: 'Specialty Store',
-      Latitude: 40.71719,
-      Longitude: -73.999298,
-      Incentive_Program: null,
-      Grantee_Name: null,
-      ObjectId: 245862
+```json
+[
+  {
+    "attributes": {
+      "Record_ID": 1063605,
+      "Store_Name": "Win Sea Food Market Inc.",
+      "Store_Street_Address": "218 Canal St",
+      "Additonal_Address": null,
+      "City": "New York",
+      "State": "NY",
+      "Zip_Code": "10013",
+      "Zip4": "4123",
+      "County": "NEW YORK",
+      "Store_Type": "Specialty Store",
+      "Latitude": 40.71719,
+      "Longitude": -73.999298,
+      "Incentive_Program": null,
+      "Grantee_Name": null,
+      "ObjectId": 245862
     }
   },
   {
-    attributes: {
-      Record_ID: 1617411,
-      Store_Name: 'Jojo Duck',
-      Store_Street_Address: '131 Walker St',
-      Additonal_Address: null,
-      City: 'New York',
-      State: 'NY',
-      Zip_Code: '10013',
-      Zip4: '4108',
-      County: 'NEW YORK',
-      Store_Type: 'Restaurant Meals Program',
-      Latitude: 40.717319,
-      Longitude: -73.999702,
-      Incentive_Program: null,
-      Grantee_Name: null,
-      ObjectId: 264117
+    "attributes": {
+      "Record_ID": 1617411,
+      "Store_Name": "Jojo Duck",
+      "Store_Street_Address": "131 Walker St",
+      "Additonal_Address": null,
+      "City": "New York",
+      "State": "NY",
+      "Zip_Code": "10013",
+      "Zip4": "4108",
+      "County": "NEW YORK",
+      "Store_Type": "Restaurant Meals Program",
+      "Latitude": 40.717319,
+      "Longitude": -73.999702,
+      "Incentive_Program": null,
+      "Grantee_Name": null,
+      "ObjectId": 264117
     }
-  }]`
+  }
+]
+```
