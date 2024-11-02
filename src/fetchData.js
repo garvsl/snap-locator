@@ -1,5 +1,11 @@
-export const fetchData = async (latitude, longitude, distance = 1000) => {
-  const queryUrl = `https://services1.arcgis.com/RLQu0rK7h4kbsBq5/arcgis/rest/services/snap_retailer_location_data/FeatureServer/0/query?f=json&geometry=${longitude},${latitude}&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&distance=${distance}&units=esriSRUnit_Meter&returnGeometry=true&outFields=*&maxRecordCountFactor=5&outSR=102100&resultOffset=0&resultRecordCount=5000&cacheHint=true`;
+export const fetchData = async (
+  latitude,
+  longitude,
+  distance = 1000,
+  offset = 0,
+  count = 5000
+) => {
+  const queryUrl = `https://services1.arcgis.com/RLQu0rK7h4kbsBq5/arcgis/rest/services/snap_retailer_location_data/FeatureServer/0/query?f=json&geometry=${longitude},${latitude}&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&distance=${distance}&units=esriSRUnit_Meter&returnGeometry=true&outFields=*&maxRecordCountFactor=5&outSR=102100&resultOffset=${offset}&resultRecordCount=${count}&cacheHint=true`;
 
   const response = await fetch(queryUrl, {
     cache: "default",
